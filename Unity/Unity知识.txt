@@ -1,0 +1,19 @@
+Unity中的序列化 　　
+　　Unity会自动序列化所有你自己写的脚本组件（ScriptableObject），重载新的程序集，并且重新创建你的脚本组件。简单的说，序列化后，数据就可以被保存了。Unity序列化过程不走.NET的方法，而是Unity内部的方法。
+
+可序列类型
+所有继承至UnityEngine.Object的类，如MonoBehaviour。
+所有基本数据类型，如int、string等。
+一些内置类型，如Vector3、Quaternion,、Matrix4x4、Color、Rect、 LayerMask等。
+一列可序列化类型的列表。
+枚举类型。
+结构类型。
+Unity可以序列化的有： 
+1. 可序列化类型中公有非静态字段。 
+2. 非公有非静态，但是带[SerializeField] 特性的字段。
+
+Unity不可以序列化的有： 
+1. 静态字段 
+2. 属性（Property） 　　
+
+如果一个元素放在list或array两次，序列化时，会得到两份元素的拷贝，而不是一份拷贝两次在新的列表。
